@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,14 +86,33 @@ WSGI_APPLICATION = "moneygroove.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
+
+if 'DOKKU_POSTGRES_MONEYGROOVE_NAME' in os.environ:
+    ENV = 'prod'
+    DOKKU_APP_NAME = 'MONEYGROOVE'
+
+    dokku_db_conf = {
+        'PORT': os.environ[f'DOKKU_POSTGRES_{DOKKU_APP_NAME}_PORT_5432_TCP_PORT'],
+        'HOST': os.environ[f'DOKKU_POSTGRES_{DOKKU_APP_NAME}_PORT_5432_TCP_ADDR'],
+        'USER': 'postgres',
+        'PASSWORD': os.environ[f'DOKKU_POSTGRES_{DOKKU_APP_NAME}_ENV_POSTGRES_PASSWORD'],
+        'NAME': DOKKU_APP_NAME.lower(),
+        'ENGINE': 'django.db.backends.postgresql',
+    }
+else:
+    ENV = 'dev'
+
+    dokku_db_conf = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
+
+
+DATABASES = {
+    'default': {
+        **dokku_db_conf
+    }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
