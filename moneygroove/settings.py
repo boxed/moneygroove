@@ -25,7 +25,9 @@ SECRET_KEY = "django-insecure-!t=qk-o+(7(gzpuw3dlx6)z&6voglgb)(u=t6sxwcze6=avg0n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'moneygroove.kodare.com'
+]
 
 
 # Application definition
@@ -101,6 +103,7 @@ if 'DOKKU_POSTGRES_MONEYGROOVE_NAME' in os.environ:
     }
 else:
     ENV = 'dev'
+    ALLOWED_HOSTS = []
 
     dokku_db_conf = {
         "ENGINE": "django.db.backends.sqlite3",
