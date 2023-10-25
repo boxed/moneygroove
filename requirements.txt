@@ -3,3 +3,4 @@ iommi
 whitenoise
 django_pycharm_breakpoint
 okrand
+psycopg2
