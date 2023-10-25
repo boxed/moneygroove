@@ -1,6 +1,13 @@
+from django.contrib.auth import authenticate
 from django.db.models import Sum
+from django.http import (
+    HttpResponse,
+    HttpResponseBadRequest,
+    JsonResponse,
+)
 from django.utils.formats import localize
 from django.utils.timezone import now
+from django.views.decorators.http import require_POST
 from iommi import (
     Column,
     EditColumn,
@@ -45,26 +52,30 @@ def build_expected_lines(*, sum_income, sum_expenses, expenses, target_savings):
     ]
 
 
+def groove(user):
+    sum_income = ExpectedIncome.objects.filter(user=user).aggregate(sum=Sum('amount'))['sum']
+    sum_expenses = ExpectedExpense.objects.filter(user=user).aggregate(sum=Sum('amount'))['sum']
+    expected_lines = build_expected_lines(sum_income=sum_income, sum_expenses=sum_expenses, expenses=ExpectedExpense.objects.filter(user=user), target_savings=user.target_savings)
+    benchmark_by_date = {
+        x.date: x.benchmark
+        for x in expected_lines
+    }
+
+    return dict(
+        sum_income=sum_income,
+        sum_expenses=sum_expenses,
+        expected_lines=expected_lines,
+        today=benchmark_by_date[now().day],
+    )
+
+
 class IndexPage(Page):
     class Meta:
         title = 'Money groove'
 
         @staticmethod
         def extra_params(request):
-            sum_income = ExpectedIncome.objects.filter(user=request.user).aggregate(sum=Sum('amount'))['sum']
-            sum_expenses = ExpectedExpense.objects.filter(user=request.user).aggregate(sum=Sum('amount'))['sum']
-            expected_lines = build_expected_lines(sum_income=sum_income, sum_expenses=sum_expenses, expenses=ExpectedExpense.objects.filter(user=request.user), target_savings=request.user.target_savings)
-            benchmark_by_date = {
-                x.date: x.benchmark
-                for x in expected_lines
-            }
-
-            return dict(
-                sum_income=sum_income,
-                sum_expenses=sum_expenses,
-                expected_lines=expected_lines,
-                today=benchmark_by_date[now().day],
-            )
+            return groove(request.user)
 
     today = html.h2(lambda params, **_: params.today)
 
@@ -116,3 +127,13 @@ class IndexPage(Page):
             edit__parsed_data=lambda request, **_: request.user,
         ),
     )
+
+
+def api__groove(request):
+    username = request.headers.get('x-username')
+    password = request.headers.get('x-password')
+    if username is None or password is None:
+        return HttpResponseBadRequest()
+
+    user = authenticate(username=username, password=password)
+    return JsonResponse(groove(user))
