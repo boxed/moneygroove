@@ -60,6 +60,8 @@ MIDDLEWARE = [
     'iommi.sql_trace.Middleware',
     'iommi.profiling.Middleware',
 
+    'moneygroove.middleware.auth_middleware',
+
     # needs to be last
     'iommi.middleware',
 ]
