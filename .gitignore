@@ -205,3 +205,5 @@ docs/tutorial.rst
 mutants/
 
 db.sqlite3
+
+settings_local.py
