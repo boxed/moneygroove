@@ -53,8 +53,8 @@ def build_expected_lines(*, sum_income, sum_expenses, expenses, target_savings):
 
 
 def groove(user):
-    sum_income = ExpectedIncome.objects.filter(user=user).aggregate(sum=Sum('amount'))['sum']
-    sum_expenses = ExpectedExpense.objects.filter(user=user).aggregate(sum=Sum('amount'))['sum']
+    sum_income = ExpectedIncome.objects.filter(user=user).aggregate(sum=Sum('amount'))['sum'] or 0
+    sum_expenses = ExpectedExpense.objects.filter(user=user).aggregate(sum=Sum('amount'))['sum'] or 0
     expected_lines = build_expected_lines(sum_income=sum_income, sum_expenses=sum_expenses, expenses=ExpectedExpense.objects.filter(user=user), target_savings=user.target_savings)
     benchmark_by_date = {
         x.date: x.benchmark
