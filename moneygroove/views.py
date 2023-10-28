@@ -137,7 +137,5 @@ def api__groove(request):
     if username is None or password is None:
         return HttpResponseBadRequest()
 
-    password = 'q'
-
     user = authenticate(username=username, password=password)
     return JsonResponse(groove(user))
