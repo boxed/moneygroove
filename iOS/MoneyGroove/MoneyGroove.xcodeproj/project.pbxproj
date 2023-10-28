@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE4929C82AED8FFA00CD180E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4929C72AED8FFA00CD180E /* WidgetKit.framework */; };
+		AE4929CA2AED8FFA00CD180E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4929C92AED8FFA00CD180E /* SwiftUI.framework */; };
+		AE4929CD2AED8FFA00CD180E /* MoneyGrooveWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4929CC2AED8FFA00CD180E /* MoneyGrooveWidgetBundle.swift */; };
+		AE4929CF2AED8FFA00CD180E /* MoneyGrooveWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4929CE2AED8FFA00CD180E /* MoneyGrooveWidget.swift */; };
+		AE4929D12AED8FFB00CD180E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4929D02AED8FFB00CD180E /* Assets.xcassets */; };
+		AE4929D52AED8FFB00CD180E /* MoneyGrooveWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AE4929C52AED8FFA00CD180E /* MoneyGrooveWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AEE1938B2AEA40C4009572A5 /* MoneyGrooveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1938A2AEA40C4009572A5 /* MoneyGrooveApp.swift */; };
+		AEE1938D2AEA40C4009572A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1938C2AEA40C4009572A5 /* ContentView.swift */; };
+		AEE1938F2AEA40C5009572A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE1938E2AEA40C5009572A5 /* Assets.xcassets */; };
+		AEE193922AEA40C5009572A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE193912AEA40C5009572A5 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE4929D32AED8FFB00CD180E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEE1937F2AEA40C4009572A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE4929C42AED8FFA00CD180E;
+			remoteInfo = MoneyGrooveWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE4929D62AED8FFB00CD180E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AE4929D52AED8FFB00CD180E /* MoneyGrooveWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AE4929C52AED8FFA00CD180E /* MoneyGrooveWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoneyGrooveWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE4929C72AED8FFA00CD180E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AE4929C92AED8FFA00CD180E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		AE4929CC2AED8FFA00CD180E /* MoneyGrooveWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyGrooveWidgetBundle.swift; sourceTree = "<group>"; };
+		AE4929CE2AED8FFA00CD180E /* MoneyGrooveWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyGrooveWidget.swift; sourceTree = "<group>"; };
+		AE4929D02AED8FFB00CD180E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE4929D22AED8FFB00CD180E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE4929DA2AED9DDA00CD180E /* MoneyGroove.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoneyGroove.entitlements; sourceTree = "<group>"; };
+		AE4929DB2AED9E4D00CD180E /* MoneyGrooveWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoneyGrooveWidgetExtension.entitlements; sourceTree = "<group>"; };
+		AEE193872AEA40C4009572A5 /* MoneyGroove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyGroove.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEE1938A2AEA40C4009572A5 /* MoneyGrooveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyGrooveApp.swift; sourceTree = "<group>"; };
+		AEE1938C2AEA40C4009572A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AEE1938E2AEA40C5009572A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AEE193912AEA40C5009572A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE4929C22AED8FFA00CD180E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE4929CA2AED8FFA00CD180E /* SwiftUI.framework in Frameworks */,
+				AE4929C82AED8FFA00CD180E /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEE193842AEA40C4009572A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE4929C62AED8FFA00CD180E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE4929C72AED8FFA00CD180E /* WidgetKit.framework */,
+				AE4929C92AED8FFA00CD180E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE4929CB2AED8FFA00CD180E /* MoneyGrooveWidget */ = {
+			isa = PBXGroup;
+			children = (
+				AE4929CC2AED8FFA00CD180E /* MoneyGrooveWidgetBundle.swift */,
+				AE4929CE2AED8FFA00CD180E /* MoneyGrooveWidget.swift */,
+				AE4929D02AED8FFB00CD180E /* Assets.xcassets */,
+				AE4929D22AED8FFB00CD180E /* Info.plist */,
+			);
+			path = MoneyGrooveWidget;
+			sourceTree = "<group>";
+		};
+		AEE1937E2AEA40C4009572A5 = {
+			isa = PBXGroup;
+			children = (
+				AE4929DB2AED9E4D00CD180E /* MoneyGrooveWidgetExtension.entitlements */,
+				AEE193892AEA40C4009572A5 /* MoneyGroove */,
+				AE4929CB2AED8FFA00CD180E /* MoneyGrooveWidget */,
+				AE4929C62AED8FFA00CD180E /* Frameworks */,
+				AEE193882AEA40C4009572A5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AEE193882AEA40C4009572A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEE193872AEA40C4009572A5 /* MoneyGroove.app */,
+				AE4929C52AED8FFA00CD180E /* MoneyGrooveWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEE193892AEA40C4009572A5 /* MoneyGroove */ = {
+			isa = PBXGroup;
+			children = (
+				AE4929DA2AED9DDA00CD180E /* MoneyGroove.entitlements */,
+				AEE1938A2AEA40C4009572A5 /* MoneyGrooveApp.swift */,
+				AEE1938C2AEA40C4009572A5 /* ContentView.swift */,
+				AEE1938E2AEA40C5009572A5 /* Assets.xcassets */,
+				AEE193902AEA40C5009572A5 /* Preview Content */,
+			);
+			path = MoneyGroove;
+			sourceTree = "<group>";
+		};
+		AEE193902AEA40C5009572A5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AEE193912AEA40C5009572A5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE4929C42AED8FFA00CD180E /* MoneyGrooveWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE4929D92AED8FFB00CD180E /* Build configuration list for PBXNativeTarget "MoneyGrooveWidgetExtension" */;
+			buildPhases = (
+				AE4929C12AED8FFA00CD180E /* Sources */,
+				AE4929C22AED8FFA00CD180E /* Frameworks */,
+				AE4929C32AED8FFA00CD180E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoneyGrooveWidgetExtension;
+			productName = MoneyGrooveWidgetExtension;
+			productReference = AE4929C52AED8FFA00CD180E /* MoneyGrooveWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AEE193862AEA40C4009572A5 /* MoneyGroove */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEE193952AEA40C5009572A5 /* Build configuration list for PBXNativeTarget "MoneyGroove" */;
+			buildPhases = (
+				AEE193832AEA40C4009572A5 /* Sources */,
+				AEE193842AEA40C4009572A5 /* Frameworks */,
+				AEE193852AEA40C4009572A5 /* Resources */,
+				AE4929D62AED8FFB00CD180E /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE4929D42AED8FFB00CD180E /* PBXTargetDependency */,
+			);
+			name = MoneyGroove;
+			productName = MoneyGroove;
+			productReference = AEE193872AEA40C4009572A5 /* MoneyGroove.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEE1937F2AEA40C4009572A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AE4929C42AED8FFA00CD180E = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					AEE193862AEA40C4009572A5 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = AEE193822AEA40C4009572A5 /* Build configuration list for PBXProject "MoneyGroove" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AEE1937E2AEA40C4009572A5;
+			productRefGroup = AEE193882AEA40C4009572A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEE193862AEA40C4009572A5 /* MoneyGroove */,
+				AE4929C42AED8FFA00CD180E /* MoneyGrooveWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE4929C32AED8FFA00CD180E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE4929D12AED8FFB00CD180E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEE193852AEA40C4009572A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEE193922AEA40C5009572A5 /* Preview Assets.xcassets in Resources */,
+				AEE1938F2AEA40C5009572A5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE4929C12AED8FFA00CD180E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE4929CF2AED8FFA00CD180E /* MoneyGrooveWidget.swift in Sources */,
+				AE4929CD2AED8FFA00CD180E /* MoneyGrooveWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEE193832AEA40C4009572A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEE1938D2AEA40C4009572A5 /* ContentView.swift in Sources */,
+				AEE1938B2AEA40C4009572A5 /* MoneyGrooveApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE4929D42AED8FFB00CD180E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE4929C42AED8FFA00CD180E /* MoneyGrooveWidgetExtension */;
+			targetProxy = AE4929D32AED8FFB00CD180E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AE4929D72AED8FFB00CD180E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MoneyGrooveWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B6FVY827P9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoneyGrooveWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MoneyGrooveWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.MoneyGroove.MoneyGrooveWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE4929D82AED8FFB00CD180E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MoneyGrooveWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B6FVY827P9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoneyGrooveWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MoneyGrooveWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.MoneyGroove.MoneyGrooveWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AEE193932AEA40C5009572A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AEE193942AEA40C5009572A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AEE193962AEA40C5009572A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoneyGroove/MoneyGroove.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MoneyGroove/Preview Content\"";
+				DEVELOPMENT_TEAM = B6FVY827P9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.MoneyGroove;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AEE193972AEA40C5009572A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoneyGroove/MoneyGroove.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MoneyGroove/Preview Content\"";
+				DEVELOPMENT_TEAM = B6FVY827P9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.MoneyGroove;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE4929D92AED8FFB00CD180E /* Build configuration list for PBXNativeTarget "MoneyGrooveWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE4929D72AED8FFB00CD180E /* Debug */,
+				AE4929D82AED8FFB00CD180E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEE193822AEA40C4009572A5 /* Build configuration list for PBXProject "MoneyGroove" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEE193932AEA40C5009572A5 /* Debug */,
+				AEE193942AEA40C5009572A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEE193952AEA40C5009572A5 /* Build configuration list for PBXNativeTarget "MoneyGroove" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEE193962AEA40C5009572A5 /* Debug */,
+				AEE193972AEA40C5009572A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEE1937F2AEA40C4009572A5 /* Project object */;
+}
