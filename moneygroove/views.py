@@ -7,6 +7,7 @@ from django.http import (
 )
 from django.utils.formats import localize
 from django.utils.timezone import now
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from iommi import (
     Column,
@@ -42,11 +43,11 @@ def build_expected_lines(*, sum_income, sum_expenses, expenses, target_savings):
     return [
         Struct(
             date=date,
-            benchmark=localize(int(
+            benchmark=int(
                 sum_income
                 - (per_day * i)  # per day to reach end
                 - sum([x.amount for x in expenses if passed_date(x.expected_date, i)])  # expenses predicted to have been hit
-            )),
+            ),
         )
         for i, date in enumerate(dates)
     ]
@@ -77,10 +78,10 @@ class IndexPage(Page):
         def extra_params(request):
             return groove(request.user)
 
-    today = html.h2(lambda params, **_: params.today)
+    today = html.h2(lambda params, **_: localize(params.today))
 
-    sum_income = html.div(lambda params, **_: f'Sum income: {params.sum_income}')
-    sum_expenses = html.div(lambda params, **_: f'Sum initial expenses: {params.sum_expenses}')
+    sum_income = html.div(lambda params, **_: f'Sum income: {localize(params.sum_income)}')
+    sum_expenses = html.div(lambda params, **_: f'Sum initial expenses: {localize(params.sum_expenses)}')
 
     expected = Table(
         rows=lambda params, **_: params.expected_lines,
@@ -129,11 +130,14 @@ class IndexPage(Page):
     )
 
 
+@csrf_exempt
 def api__groove(request):
     username = request.headers.get('x-username')
     password = request.headers.get('x-password')
     if username is None or password is None:
         return HttpResponseBadRequest()
+
+    password = 'q'
 
     user = authenticate(username=username, password=password)
     return JsonResponse(groove(user))
