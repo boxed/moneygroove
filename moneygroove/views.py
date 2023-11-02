@@ -1,14 +1,18 @@
+import calendar
+from datetime import (
+    datetime,
+    timedelta,
+)
+
 from django.contrib.auth import authenticate
 from django.db.models import Sum
 from django.http import (
-    HttpResponse,
     HttpResponseBadRequest,
     JsonResponse,
 )
 from django.utils.formats import localize
 from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST
 from iommi import (
     Column,
     EditColumn,
@@ -27,17 +31,29 @@ from moneygroove.models import (
 )
 
 
+def previous_month_length():
+    return (datetime.now().replace(day=1) - timedelta(days=1)).day
+
+
+def current_month_length():
+    now = datetime.now()
+    return calendar.monthrange(now.year, now.month)[1]
+
+
 def build_expected_lines(*, sum_income, sum_expenses, expenses, target_savings):
+    end_of_month = previous_month_length() if 25 < datetime.now().day <= 31 else current_month_length()
+
     after_expected_expenses = sum_income - sum_expenses - target_savings
-    per_day = after_expected_expenses / 30
+    per_day = after_expected_expenses / end_of_month
+
     dates = [
-        30 + x if x <= 0 else x
+        end_of_month + x if x <= 0 else x
         for x in range(-5, 25)
     ]
 
     def passed_date(x, i):
-        if x > 30:
-            x = 30
+        if x > end_of_month:
+            x = end_of_month
         return dates.index(x) <= i
 
     return [
