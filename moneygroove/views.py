@@ -83,6 +83,7 @@ def groove(user):
         sum_expenses=sum_expenses,
         expected_lines=expected_lines,
         today=benchmark_by_date[now().day],
+        benchmark_by_date=benchmark_by_date,
     )
 
 
