@@ -22,6 +22,9 @@ struct ContentView: View {
             if let amount = store.amount {
                 Text("\(amount)").font(.system(size: 80))
             }
+            if let amount = store.amountTomorrow {
+                Text("\(amount)").font(.system(size: 50))
+            }
             Spacer(minLength: 400)
         }
         .onAppear {

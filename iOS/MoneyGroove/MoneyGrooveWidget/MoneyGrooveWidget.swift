@@ -10,9 +10,10 @@ import SwiftUI
 
 class Groove: Identifiable, Decodable {
     var today: Int
+    var benchmark_by_date: [Int: Int]
 }
 
-func fetchAmount() async throws -> Int? {
+func fetchGroove() async throws -> Groove? {
     let defaults = UserDefaults.init(suiteName: "group.moneygroove")!
     guard let username = defaults.string(forKey: "username") else { return nil }
     guard let password = defaults.string(forKey: "password") else { return nil }
@@ -26,28 +27,29 @@ func fetchAmount() async throws -> Int? {
     request.setValue(password, forHTTPHeaderField: "x-password")
     
     let (data, _) = try await URLSession.shared.data(for: request)
-    let foo = try JSONDecoder().decode(Groove.self, from: data)
-    return foo.today
+    return try JSONDecoder().decode(Groove.self, from: data)
 }
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), amount: nil)
+        SimpleEntry(date: Date(), amount: nil, amountTomorrow: nil)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), amount: nil)
+        let entry = SimpleEntry(date: Date(), amount: nil, amountTomorrow: nil)
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         Task {
-            guard let amount = try? await fetchAmount() else {
+            guard let groove = try? await fetchGroove() else {
                 return
             }
-            
+            let tomorrow = Calendar.current.date(byAdding: DateComponents(day: 1), to: Date())!
+            let amountTomorrow = groove.benchmark_by_date[Calendar.current.component(.day, from: tomorrow)]
+
             let entries: [SimpleEntry] = [
-                SimpleEntry(date: Calendar.current.date(byAdding: .hour, value: 1, to: Date())!, amount: amount)
+                SimpleEntry(date: Calendar.current.date(byAdding: .hour, value: 1, to: Date())!, amount: groove.today, amountTomorrow: amountTomorrow)
             ]
 
             // Create the timeline with the entry and a reload policy with the date
@@ -65,6 +67,7 @@ struct Provider: TimelineProvider {
 struct SimpleEntry: TimelineEntry {
     var date: Date
     let amount: Int?
+    let amountTomorrow: Int?
 }
 
 struct MoneyGrooveWidgetEntryView : View {
@@ -72,11 +75,17 @@ struct MoneyGrooveWidgetEntryView : View {
 
     var body: some View {
         VStack {
-            if let amount = entry.amount {
-                Text("\(amount)").font(.system(size: 30))
-            }
-            else {
-                Text("...")
+            VStack {
+                if let amount = entry.amount {
+                    Text("\(amount)").font(.system(size: 30))
+
+                    if let amount = entry.amountTomorrow {
+                        Text("\(amount)").font(.system(size: 20))
+                    }
+                }
+                else {
+                    Text("...")
+                }
             }
         }
     }
@@ -105,5 +114,5 @@ struct MoneyGrooveWidget: Widget {
 #Preview(as: .systemSmall) {
     MoneyGrooveWidget()
 } timeline: {
-    SimpleEntry(date: .now, amount: nil)
+    SimpleEntry(date: .now, amount: 31234, amountTomorrow: 30134)
 }

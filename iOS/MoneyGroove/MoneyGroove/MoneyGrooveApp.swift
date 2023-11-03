@@ -1,11 +1,12 @@
 import SwiftUI
 
 class Groove: Identifiable, Decodable {
-    var today: Int
+    var benchmark_by_date: [Int: Int]
 }
 
 class Store: ObservableObject {
     @Published var amount: Int?
+    @Published var amountTomorrow: Int?
     
     func refresh(username: String, password: String) {
         let url = URL(string: "https://moneygroove.kodare.com/api/v1/groove/")!
@@ -29,7 +30,9 @@ class Store: ObservableObject {
                 DispatchQueue.main.async {
                     do {
                         let foo = try JSONDecoder().decode(Groove.self, from: data)
-                        self.amount = foo.today
+                        self.amount = foo.benchmark_by_date[Calendar.current.component(.day, from: Date())]
+                        let tomorrow = Calendar.current.date(byAdding: DateComponents(day: 1), to: Date())!
+                        self.amountTomorrow = foo.benchmark_by_date[Calendar.current.component(.day, from: tomorrow)]
                     } catch let error {
                         print("Error decoding: ", error)
                     }
