@@ -41,7 +41,7 @@ def current_month_length():
 
 
 def build_expected_lines(*, sum_income, sum_expenses, expenses, target_savings):
-    end_of_month = previous_month_length() if 25 < datetime.now().day <= 31 else current_month_length()
+    end_of_month = previous_month_length() if datetime.now().day < 25 else current_month_length()
 
     after_expected_expenses = sum_income - sum_expenses - target_savings
     per_day = after_expected_expenses / end_of_month

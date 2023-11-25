@@ -1,0 +1,4 @@
+pytest
+time-machine
+pytest-django
+coverage
