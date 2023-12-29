@@ -48,7 +48,7 @@ def build_expected_lines(*, sum_income, sum_expenses, expenses, target_savings):
 
     dates = [
         end_of_month + x if x <= 0 else x
-        for x in range(-5, 25)
+        for x in range(-5, 26)
     ]
 
     def passed_date(x, i):
