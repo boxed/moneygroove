@@ -7,3 +7,4 @@ psycopg2
 gunicorn
 sentry-sdk
 executing
+pure_eval
