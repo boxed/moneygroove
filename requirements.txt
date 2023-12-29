@@ -5,3 +5,4 @@ django_pycharm_breakpoint
 okrand
 psycopg2
 gunicorn
+sentry-sdk

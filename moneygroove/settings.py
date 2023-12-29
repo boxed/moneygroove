@@ -169,12 +169,31 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = 'moneygroove.User'
 
+SENTRY_DSN = "https://2fa92693d910dcb9d7c5ad215fc2502f@o238340.ingest.sentry.io/4506477721223168"
 
 if DEBUG:
     INSTALLED_APPS += [
         'django_pycharm_breakpoint',
         'okrand',
     ]
+
+if not DEBUG:
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+    from sentry_sdk.integrations.pure_eval import PureEvalIntegration
+    from sentry_sdk.integrations.logging import ignore_logger
+
+    sentry_conf = dict(
+        dsn=SENTRY_DSN,
+        integrations=[
+            DjangoIntegration(),
+            PureEvalIntegration()
+        ],
+        send_default_pii=True,
+        environment=ENV,
+    )
+
+    sentry_sdk.init(**sentry_conf)
 
 try:
     from .settings_local import *
